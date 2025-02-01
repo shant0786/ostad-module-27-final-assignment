@@ -1,10 +1,4 @@
-Here’s a structured **Requirements Guide** based on the provided assignment details:
-
----
-
-# **Portfolio Website Development Requirements Guide**
-
-**Module 27 Assignment**
+# **Portfolio Website** ( **Module 27 Assignment**)
 
 ## **1. Project Overview**
 
@@ -93,7 +87,3 @@ An **admin panel** must be included for managing the content dynamically.
 - Complete project documentation on GitHub.
 
 Failure to provide the required links and credentials will **reduce the score by 50%**.
-
----
-
-This guide provides clear requirements for successfully completing the assignment. 🚀 Let me know if you need further refinements!
