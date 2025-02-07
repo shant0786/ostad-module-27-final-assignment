@@ -3,7 +3,7 @@ function Hero() {
   return (
     <>
       <section className="md:py-26 overflow-hidden md:pt-0 sm:pt-16 2xl:pt-16">
-        <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+        <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl pb-8 bg-gray-800 backdrop-blur-lg rounded-4xl">
           <div className="grid items-center grid-cols-1 md:grid-cols-2">
             <div>
               <h2 className="text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl lg:text-5xl">
@@ -36,15 +36,15 @@ function Hero() {
                 Hire Me?
               </a>
             </div>
-            <div className="relative mt-10">
+            <div className="relative mt-20">
               <img
-                className="absolute inset-x-0 bottom-0 -mb-48 -translate-x-1/2 left-1/2"
+                className="absolute inset-x-0 bottom-0 -top-8 -mb-26 -translate-x-1/2 left-1/2"
                 src="https://cdn.rareblocks.xyz/collection/celebration/images/team/1/blob-shape.svg"
                 alt=""
               />
 
               <img
-                className="relative w-full xl:max-w-lg xl:mx-auto -mb-12 2xl:origin-bottom 2xl:scale-110"
+                className="relative w-full xl:max-w-lg -top-12 xl:mx-auto 2xl:origin-top 2xl:scale-110"
                 src={heroImg}
                 alt="My Image"
               />

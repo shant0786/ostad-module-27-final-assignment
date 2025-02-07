@@ -16,13 +16,13 @@ function Blog() {
 
   return (
     <>
-      <div className="mx-auto my-10 md:max-w-7xl min-h-screen  gap-3 grid grid-cols-12">
+      <div className="mx-auto my-10 md:max-w-7xl min-h-screen bg-gray-800 rounded-3xl p-3 gap-3 grid grid-cols-12">
         {blogData["data"].map((blog, i) => {
           return (
             <div
               key={i}
               className="md:col-span-4 col-span-12 sm:col-span-6 mx-2 my-3">
-              <div className="max-w-sm bg-white border rounded-sm dark:bg-gray-800 dark:border-gray-700">
+              <div className="max-w-sm bg-white border rounded-xl dark:bg-gray-900 dark:border-gray-700">
                 <a href="#">
                   <img
                     className="rounded-t-lg"
