@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <>
-      <footer className="bg-white shadow-sm dark:bg-gray-900 border-t-1 border-gray-500">
+      <footer className="bg-white shadow-sm dark:bg-gray-800 border-t-1 border-gray-500">
         <div className="w-full  max-w-screen-xl p-4 md:flex md:items-center md:justify-around">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2025 . All Rights Reserved.

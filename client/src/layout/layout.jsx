@@ -3,7 +3,7 @@ import NavBar from "../components/navbar";
 
 function Layout({ children }) {
   return (
-    <div className="dark:bg-gray-900 border border-gray-600 border-b-2">
+    <div className="dark:bg-gray-900">
       <NavBar />
       {children}
       <Footer />

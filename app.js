@@ -11,13 +11,17 @@ const hpp = require("hpp");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
-const path = require("path");
-const URL =
-  "mongodb+srv://<username>:<password>@cluster0.vidqntm.mongodb.net/portfolio_assignment";
-let option = { user: "rmshanto786", pass: "shanto786", autoIndex: true };
+const {
+  WEB_CACHE,
+  MONGODB_CONNECTION,
+  REQUEST_LIMIT_TIME,
+  REQUEST_LIMIT_NUMBER,
+  MAX_JSON_SIZE,
+  URL_ENCODED,
+} = require("./config");
 
 mongoose
-  .connect(URL, option)
+  .connect(MONGODB_CONNECTION, { autoIndex: true })
   .then((res) => {
     console.log("Database Connected Successfully");
   })
@@ -27,23 +31,33 @@ mongoose
 
 app.use(cookieParser());
 app.use(cors());
-
-app.use(helmet());
-
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      "img-src": ["'self'", "https: data:"],
+    },
+  })
+);
 app.use(mongoSanitize());
 app.use(xss());
 app.use(hpp());
 
-app.use(express.json({ limit: "50mb" }));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: MAX_JSON_SIZE }));
+app.use(express.urlencoded({ extended: URL_ENCODED }));
 
-const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 3000 });
-app.use(limiter);
+app.use(
+  rateLimit({
+    windowMs: REQUEST_LIMIT_TIME,
+    max: REQUEST_LIMIT_NUMBER,
+  })
+);
 
-app.set("etag", false);
+// Disabling ETags helps avoid caching problems,dynamic content or multiple servers
+
+app.set("etag", WEB_CACHE);
 app.use("/api/v1", router);
 
-// Scaffolding with client-side
 app.use(express.static("client/dist"));
 
 // Add React Front End Routing

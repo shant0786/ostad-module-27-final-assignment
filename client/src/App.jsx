@@ -6,6 +6,7 @@ import AboutPage from "./pages/about-page";
 import ServicePage from "./pages/service-page";
 import LoginPage from "./pages/login-page";
 import RegisterPage from "./pages/register-page";
+import Dashboard from "./pages/dashboard";
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +18,7 @@ function App() {
         <Route path="/about" exact element={<AboutPage />} />
         <Route path="/login" exact element={<LoginPage />} />
         <Route path="/register" exact element={<RegisterPage />} />
+        <Route path="/dashboard" exact element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );
