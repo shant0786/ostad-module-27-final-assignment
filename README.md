@@ -6,6 +6,9 @@ You are required to develop a **portfolio website** with both frontend and backe
 [[Backend-live link]](https://ostad-module-27-final-assignment.vercel.app/)<br/>
 [[Frontend-live link]](https://portfolio-assignment-lov)
 
+`email: "johndoe@example.com",
+   password: "pass123",`
+
 ---
 
 ## **2. Website Structure & Page Requirements**
@@ -15,22 +18,22 @@ You are required to develop a **portfolio website** with both frontend and backe
 Each page must include a **menu** and a **footer**.
 
 - **Home Page**
-  - Sections:
-    - Hero/Slider
-    - Blog section (dynamic, 6 items)
+- Sections:
+  - Hero/Slider
+  - Blog section (dynamic, 6 items)
 - **About Page**
-  - Sections:
-    - About information
-    - Team section (dynamic, item-based)
+- Sections:
+  - About information
+  - Team section (dynamic, item-based)
 - **Blog Page**
-  - Sections:
-    - Dynamic blog listing (6 items)
+- Sections:
+  - Dynamic blog listing (6 items)
 - **Service Page**
-  - Sections:
-    - Dynamic service listing (6 items)
+- Sections:
+  - Dynamic service listing (6 items)
 - **Contact Page**
-  - Sections:
-    - Contact form
+- Sections:
+  - Contact form
 
 **💡 Note:** Ensure **mobile responsiveness** for all pages.
 
@@ -43,9 +46,9 @@ An **admin panel** must be included for managing the content dynamically.
 ### **Dashboard Functionalities:**
 
 - **CRUD operations** (Create, Read, Update, Delete) for:
-  - Blog posts
-  - Team members
-  - Service items
+- Blog posts
+- Team members
+- Service items
 - Dashboard UI should include **at least 5 pages**.
 
 **Authentication:**
@@ -73,9 +76,9 @@ An **admin panel** must be included for managing the content dynamically.
 - **Code must be stored in a GitHub repository**.
 - The **GitHub repository should be public**.
 - Include a **README.md** file with:
-  - Live site link
-  - Server link
-  - Login credentials for admin panel
+- Live site link
+- Server link
+- Login credentials for admin panel
 - **Missing login credentials will result in a 50% penalty**.
 
 ---
@@ -89,3 +92,7 @@ An **admin panel** must be included for managing the content dynamically.
 - Complete project documentation on GitHub.
 
 Failure to provide the required links and credentials will **reduce the score by 50%**.
+
+```
+
+```
