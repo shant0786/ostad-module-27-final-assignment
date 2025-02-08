@@ -15,7 +15,7 @@ const Services = () => {
     return <Loader />;
   }
   return (
-    <section className="md:h-dvh antialiased">
+    <section className=" min-h-svh">
       <div>
         <div className="relative block px-6 py-10 md:py-20 md:px-10">
           <div className="relative mx-auto max-w-5xl text-center">

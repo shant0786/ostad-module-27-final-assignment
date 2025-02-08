@@ -1,9 +1,11 @@
 import { useState } from "react";
-import Form from "../components/form";
 import Layout from "../layout/layout";
 import FormBlog from "../components/formBlog";
-import { newBlog, newMember } from "../APIRequest/APIRequest";
+import { newBlog, newMember, newService } from "../APIRequest/APIRequest";
 import FormMember from "../components/formMember";
+import FormService from "../components/formService";
+import DelBlogTB from "../components/delTable";
+import DelSerTB from "../components/serviceDelTB";
 
 function Dashboard() {
   const [blogData, setBlogData] = useState({
@@ -18,10 +20,15 @@ function Dashboard() {
     image: "",
     expertise: "",
   });
+  const [serviceData, setServiceData] = useState({
+    title: "",
+    des: "",
+    image: "",
+  });
   const BlogSubmit = async (e) => {
     e.preventDefault();
     // add blog to your database or use a library like Axios for making HTTP requests
-    const result = await newBlog(blogData);
+    await newBlog(blogData);
 
     setBlogData({
       title: "",
@@ -33,7 +40,7 @@ function Dashboard() {
   const MemberSubmit = async (e) => {
     e.preventDefault();
     // add blog to your database or use a library like Axios for making HTTP requests
-    const result = await newMember(memberData);
+    await newMember(memberData);
 
     setMemberData({
       name: "",
@@ -42,6 +49,18 @@ function Dashboard() {
       expertise: "",
     });
   };
+  const ServiceSubmit = async (e) => {
+    e.preventDefault();
+    // add blog to your database or use a library like Axios for making HTTP requests
+    await newService(serviceData);
+
+    setServiceData({
+      title: "",
+      des: "",
+      image: "",
+    });
+  };
+
   return (
     <Layout>
       <>
@@ -166,7 +185,7 @@ function Dashboard() {
         {/*layout*/}
         <div className="p-4 sm:ml-64 min-h-svh ">
           <div className="p-4 rounded-lg dark:border-gray-700">
-            <div className="grid grid-cols-12 grid-rows-3 gap-3">
+            <div className="grid grid-cols-12 grid-rows-2 mb-5 gap-3">
               <FormBlog
                 label1={"Blog Title"}
                 label2={"Blog Author"}
@@ -189,23 +208,20 @@ function Dashboard() {
                 MemberSubmit={MemberSubmit}
                 formName={"Add Member"}
               />
-              <Form
-                label1={"Service Description"}
-                label2={"Service Title"}
+              <FormService
+                label1={"Service Name"}
+                label2={"Description"}
                 label3={"Service image URL"}
                 btnName={"Save Services"}
+                setServiceData={setServiceData}
+                serviceData={serviceData}
+                ServiceSubmit={ServiceSubmit}
+                formName={"Add Services"}
               />
-              <Form
-                label1={"Service Description"}
-                label2={"Service Title"}
-                label3={"Service image URL"}
-                btnName={"Save Services"}
-              />
+              <DelSerTB />
             </div>
-            <div className="col-span-6 rounded-3xl bg-gray-800 p-3 md:col-span-12 col-start-7 row-start-2">
-              <div className="col-span-12 rounded-3xl bg-gray-800 p-3 row-start-3">
-                5
-              </div>
+            <div className="col-span-6 rounded-3xl bg-gray-800 p-3 md:col-span-12 col-start-7 ">
+              <DelBlogTB />
             </div>
           </div>
         </div>

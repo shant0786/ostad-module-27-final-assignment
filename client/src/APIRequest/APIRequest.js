@@ -36,12 +36,36 @@ export async function newBlog(reqBody) {
   }
 }
 export async function newMember(reqBody) {
-  console.log(reqBody);
   const result = await axios.post(BASE_URL + `/addTeamMember`, reqBody);
   console.log(result);
   if (result.data["status"] === "success") {
     Swal.fire({
       title: "New member been added",
+      text: result.data["message"],
+      icon: "success",
+      color: "#f7fafc",
+      background: "#2d3748",
+    });
+    return result.data;
+  } else {
+    Swal.fire({
+      title: "Fill all the fields",
+      text: result.data["message"],
+      icon: "error",
+      color: "#f7fafc",
+      background: "#2d3748",
+    });
+    return {
+      status: "fail",
+    };
+  }
+}
+export async function newService(reqBody) {
+  const result = await axios.post(BASE_URL + `/addServices`, reqBody);
+  console.log(result);
+  if (result.data["status"] === "success") {
+    Swal.fire({
+      title: "New Service has been added",
       text: result.data["message"],
       icon: "success",
       color: "#f7fafc",
@@ -148,9 +172,57 @@ export async function contactSend(reqBody) {
     };
   }
 }
-export async function postDetails(id) {
-  const result = await axios.get(BASE_URL + `/post-details/${id}`);
+export async function deleteBlogDas(id) {
+  const result = await axios.get(BASE_URL + `/deleteBlog/${id}`);
+  console.log(result.data["status"]);
+  if (result.data["status"] === "success") {
+    Swal.fire({
+      title: "Blog Deleted successful",
+      text: result.data["message"],
+      icon: "success",
+      color: "#f7fafc",
+      background: "#2d3748",
+    });
+    return { status: "success" };
+  }
 
-  if (result.status !== 200) return [];
-  return result.data;
+  if (result.data["status"] === "error") {
+    Swal.fire({
+      title: "Deleting failed try again",
+      text: result.data["message"],
+      icon: "error",
+      color: "#f7fafc",
+      background: "#2d3748",
+    });
+    return {
+      status: "fail",
+    };
+  }
+}
+export async function deleteServiceDas(id) {
+  const result = await axios.get(BASE_URL + `/deleteServices/${id}`);
+  console.log(result.data["status"]);
+  if (result.data["status"] === "success") {
+    Swal.fire({
+      title: "Blog Deleted successful",
+      text: result.data["message"],
+      icon: "success",
+      color: "#f7fafc",
+      background: "#2d3748",
+    });
+    return { status: "success" };
+  }
+
+  if (result.data["status"] === "error") {
+    Swal.fire({
+      title: "Deleting failed try again",
+      text: result.data["message"],
+      icon: "error",
+      color: "#f7fafc",
+      background: "#2d3748",
+    });
+    return {
+      status: "fail",
+    };
+  }
 }
