@@ -2,7 +2,8 @@ import { useState } from "react";
 import Form from "../components/form";
 import Layout from "../layout/layout";
 import FormBlog from "../components/formBlog";
-import { newBlog } from "../APIRequest/APIRequest";
+import { newBlog, newMember } from "../APIRequest/APIRequest";
+import FormMember from "../components/formMember";
 
 function Dashboard() {
   const [blogData, setBlogData] = useState({
@@ -11,16 +12,34 @@ function Dashboard() {
     image: "",
     content: "",
   });
+  const [memberData, setMemberData] = useState({
+    name: "",
+    role: "",
+    image: "",
+    expertise: "",
+  });
   const BlogSubmit = async (e) => {
     e.preventDefault();
     // add blog to your database or use a library like Axios for making HTTP requests
     const result = await newBlog(blogData);
-    console.log(result, blogData);
+
     setBlogData({
       title: "",
       author: "",
       image: "",
       content: "",
+    });
+  };
+  const MemberSubmit = async (e) => {
+    e.preventDefault();
+    // add blog to your database or use a library like Axios for making HTTP requests
+    const result = await newMember(memberData);
+
+    setMemberData({
+      name: "",
+      role: "",
+      image: "",
+      expertise: "",
     });
   };
   return (
@@ -157,12 +176,18 @@ function Dashboard() {
                 setBlogData={setBlogData}
                 BlogSubmit={BlogSubmit}
                 blogData={blogData}
+                formName={"Add Blog"}
               />
-              <Form
-                label1={"Member Description"}
-                label2={"Member Designation"}
+              <FormMember
+                label1={"Name"}
+                label2={"Designation"}
                 label3={"Profle image URL"}
+                label4={"Expertise"}
                 btnName={"Save Member"}
+                setMemberData={setMemberData}
+                memberData={memberData}
+                MemberSubmit={MemberSubmit}
+                formName={"Add Member"}
               />
               <Form
                 label1={"Service Description"}

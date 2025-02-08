@@ -35,6 +35,32 @@ export async function newBlog(reqBody) {
     };
   }
 }
+export async function newMember(reqBody) {
+  console.log(reqBody);
+  const result = await axios.post(BASE_URL + `/addTeamMember`, reqBody);
+  console.log(result);
+  if (result.data["status"] === "success") {
+    Swal.fire({
+      title: "New member been added",
+      text: result.data["message"],
+      icon: "success",
+      color: "#f7fafc",
+      background: "#2d3748",
+    });
+    return result.data;
+  } else {
+    Swal.fire({
+      title: "Fill all the fields",
+      text: result.data["message"],
+      icon: "error",
+      color: "#f7fafc",
+      background: "#2d3748",
+    });
+    return {
+      status: "fail",
+    };
+  }
+}
 export async function allTeam() {
   const result = await axios.get(BASE_URL + "/readTeamMember");
 
