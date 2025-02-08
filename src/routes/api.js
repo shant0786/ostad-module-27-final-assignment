@@ -33,14 +33,14 @@ router.delete("/deleteUser", Authenticator, UserController.DeleteUser);
 //Logout
 router.get("/logout", UserController.Logout);
 
-router.post("/createBlog", Authenticator, BlogController.createBlog);
+router.post("/createBlog", BlogController.createBlog);
 router.get("/readBlog", BlogController.readBlog);
-router.post("/updateBlog/:id", Authenticator, BlogController.updateBlog);
-router.get("/deleteBlog/:id", Authenticator, BlogController.deleteBlog);
+router.post("/updateBlog/:id", BlogController.updateBlog);
+router.get("/deleteBlog/:id", BlogController.deleteBlog);
 /// Team Members
 router.post(
   "/addTeamMember",
-  Authenticator,
+
   TeamServiceController.addTeamMember
 );
 router.get(
@@ -50,26 +50,26 @@ router.get(
 );
 router.post(
   "/updateTeamMember/:id",
-  Authenticator,
+
   TeamServiceController.updateTeamMember
 );
 router.get(
   "/deleteTeamMember/:id",
-  Authenticator,
+
   TeamServiceController.deleteTeamMember
 );
 // service routes
-router.post("/addServices", Authenticator, TeamServiceController.addServices);
+router.post("/addServices", TeamServiceController.addServices);
 router.get("/readServices", TeamServiceController.readServices);
 router.post(
   "/updateServices/:id",
-  Authenticator,
+
   TeamServiceController.updateServices
 );
 router.post("/contact", TeamServiceController.contactSend);
 router.get(
   "/deleteServices/:id",
-  Authenticator,
+
   TeamServiceController.deleteServices
 );
 

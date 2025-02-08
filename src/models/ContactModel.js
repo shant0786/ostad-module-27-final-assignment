@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 
 const usersSchema = new mongoose.Schema(
   {
-    email: String,
-    subject: String,
-    message: String,
-    content: String,
+    email: { type: String, required: true },
+    subject: { type: String, required: true },
+    message: { type: String, required: true },
+
     published_date: { type: Date, default: Date.now },
   },
   { versionKey: false, timestamps: true }

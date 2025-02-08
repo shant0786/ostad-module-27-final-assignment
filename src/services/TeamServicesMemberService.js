@@ -218,7 +218,7 @@ const contactSendService = async (req, res) => {
     }
     return {
       status: "success",
-      message: "added Successfully",
+      message: "Message Send Successfully",
       data: data,
     };
   } catch (error) {

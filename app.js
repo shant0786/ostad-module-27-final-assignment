@@ -21,7 +21,9 @@ const {
 } = require("./config");
 
 mongoose
-  .connect(MONGODB_CONNECTION, { autoIndex: true })
+  .connect(MONGODB_CONNECTION, {
+    autoIndex: true,
+  })
   .then((res) => {
     console.log("Database Connected Successfully");
   })
@@ -58,11 +60,11 @@ app.use(
 app.set("etag", WEB_CACHE);
 app.use("/api/v1", router);
 
-app.use(express.static("client/dist"));
+// app.use(express.static("client/dist"));
 
-// Add React Front End Routing
-app.get("*", function (req, res) {
-  res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
-});
+// // Add React Front End Routing
+// // app.get("*", function (req, res) {
+// //   res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
+// // });
 
 module.exports = app;

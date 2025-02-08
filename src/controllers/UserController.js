@@ -52,10 +52,9 @@ exports.VerifyAccount = async (req, res) => {
   if (result) {
     // Cookie settings
     const cookieOption = {
-      expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
-      httpOnly: false,
-      path: "/",
-      secure: true, // HTTPS only cookie
+      expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
+      httpOnly: true,
+      secure: true,
       sameSite: "none",
     };
     // Set Cookie to the Browser

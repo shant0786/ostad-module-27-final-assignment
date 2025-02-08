@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 
 const usersSchema = new mongoose.Schema(
   {
-    name: String,
-    role: String,
-    image: String,
-    profile: String,
+    name: { type: String, required: true },
+    role: { type: String, required: true },
+    image: { type: String, required: true },
+    expertise: { type: String, required: true },
   },
   { versionKey: false, timestamps: true }
 );
