@@ -17,8 +17,8 @@ function Team() {
   return (
     <div className="mx-auto p-5">
       <section className="bg-white dark:bg-gray-900">
-        <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
-          <div className="mx-auto mb-8 max-w-screen-sm lg:mb-16">
+        <div className="py-8 px-4 mx-auto max-w-screen-xl dark:bg-gray-800 rounded-3xl text-center lg:py-16 lg:px-6">
+          <div className="mx-auto mb-8 max-w-screen-sm dark:bg-gray-800 lg:mb-16">
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
               Our Team Members
             </h2>
@@ -27,12 +27,12 @@ function Team() {
               elements built with the utility classes from Tailwind
             </p>
           </div>
-          <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid gap-8 lg:gap-16 sm:grid-cols-2 dark:bg-gray-900 rounded-3xl px-4 py-6 md:grid-cols-3 lg:grid-cols-4">
             {teamData["data"].map((team, i) => {
               return (
                 <div
                   key={i}
-                  className="text-center text-gray-500 dark:text-gray-400">
+                  className="text-center text-gray-500 border-gray-400 border-2 dark:bg-gray-800 px-2 py-3 rounded-3xl dark:text-gray-400">
                   <img
                     className="mx-auto mb-4 w-36 h-36 rounded-full"
                     src={team["image"]}

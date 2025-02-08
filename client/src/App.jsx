@@ -7,6 +7,9 @@ import ServicePage from "./pages/service-page";
 import LoginPage from "./pages/login-page";
 import RegisterPage from "./pages/register-page";
 import Dashboard from "./pages/dashboard";
+import ErrorPage from "./pages/errorPage";
+// import ProtectedRoute from "./layout/protectedRoute";
+
 function App() {
   return (
     <BrowserRouter>
@@ -18,7 +21,8 @@ function App() {
         <Route path="/about" exact element={<AboutPage />} />
         <Route path="/login" exact element={<LoginPage />} />
         <Route path="/register" exact element={<RegisterPage />} />
-        <Route path="/dashboard" exact element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,4 +1,37 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { RegisterUser } from "../APIRequest/APIRequest";
+
 function RegForm() {
+  const [regData, setRegData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    phoneNumber: "",
+    city: "",
+  });
+
+  const navigate = useNavigate();
+  const submitReg = async (e) => {
+    e.preventDefault();
+    const result = await RegisterUser(regData);
+    console.log(result);
+    setRegData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      phoneNumber: "",
+      city: "",
+    });
+    if (result["status"] === "success") {
+      // Redirect to dashboard
+      navigate("/login");
+    } else {
+      return null;
+    }
+  };
   return (
     <div className="h-screen">
       <div className="flex md:max-w-7xl justify-center align-middle mx-auto p-10">
@@ -13,10 +46,11 @@ function RegForm() {
                   <input
                     type="text"
                     name="floating_first_name"
-                    id="floating_first_name"
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    required=""
+                    placeholder=""
+                    onChange={(e) =>
+                      setRegData({ ...regData, firstName: e.target.value })
+                    }
                   />
                   <label
                     htmlFor="floating_first_name"
@@ -28,10 +62,11 @@ function RegForm() {
                   <input
                     type="text"
                     name="floating_last_name"
-                    id="floating_last_name"
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    required=""
+                    placeholder=""
+                    onChange={(e) =>
+                      setRegData({ ...regData, lastName: e.target.value })
+                    }
                   />
                   <label
                     htmlFor="floating_last_name"
@@ -44,10 +79,11 @@ function RegForm() {
                 <input
                   type="email"
                   name="floating_email"
-                  id="floating_email"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" "
-                  required=""
+                  placeholder=""
+                  onChange={(e) =>
+                    setRegData({ ...regData, email: e.target.value })
+                  }
                 />
                 <label
                   htmlFor="floating_email"
@@ -59,10 +95,11 @@ function RegForm() {
                 <input
                   type="password"
                   name="floating_password"
-                  id="floating_password"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" "
-                  required=""
+                  placeholder=""
+                  onChange={(e) =>
+                    setRegData({ ...regData, password: e.target.value })
+                  }
                 />
                 <label
                   htmlFor="floating_password"
@@ -75,12 +112,12 @@ function RegForm() {
                 <div className="relative z-0 w-full mb-5 group">
                   <input
                     type="tel"
-                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                     name="floating_phone"
-                    id="floating_phone"
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    required=""
+                    placeholder=""
+                    onChange={(e) =>
+                      setRegData({ ...regData, phoneNumber: e.target.value })
+                    }
                   />
                   <label
                     htmlFor="floating_phone"
@@ -91,11 +128,12 @@ function RegForm() {
                 <div className="relative z-0 w-full mb-5 group">
                   <input
                     type="text"
-                    name="floating_company"
-                    id="floating_company"
+                    name="floating_city"
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                    placeholder=" "
-                    required=""
+                    placeholder=""
+                    onChange={(e) =>
+                      setRegData({ ...regData, city: e.target.value })
+                    }
                   />
                   <label
                     htmlFor="floating_city"
@@ -106,7 +144,9 @@ function RegForm() {
               </div>
               <span className="flex justify-center">
                 <button
-                  type="submit"
+                  onClick={(e) => {
+                    submitReg(e);
+                  }}
                   className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none  focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-8 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                   Submit
                 </button>

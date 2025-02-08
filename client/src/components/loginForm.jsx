@@ -1,11 +1,29 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+import { loginUser } from "../APIRequest/APIRequest";
 
 function LoginForm() {
+  const [loginData, setLoginData] = useState({
+    email: "johndoe@example.com",
+    password: "pass123",
+  });
+  const navigate = useNavigate();
+  const submitLogin = async (e) => {
+    e.preventDefault();
+    const result = await loginUser(loginData);
+    setLoginData({ email: "", password: "" });
+    if (result["isVarified"]) {
+      // Redirect to dashboard
+      sessionStorage.setItem("token", result["token"]);
+      navigate("/dashboard");
+    }
+  };
   return (
-    <div className="h-screen">
+    <div className="min-h-svh">
       <div className="flex md:max-w-7xl  justify-center align-middle mx-auto p-10">
         <div className="w-full max-w-sm p-4 bg-white border align-middle items-center border-gray-200 rounded-lg shadow-sm sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 m-16">
-          <form className="space-y-6" action="#">
+          <form className="space-y-6">
             <h5 className="text-xl font-medium text-gray-900 dark:text-white">
               Sign in to our platform
             </h5>
@@ -18,10 +36,11 @@ function LoginForm() {
               <input
                 type="email"
                 name="email"
-                id="email"
+                placeholder="name@example.com"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                placeholder="name@company.com"
-                required=""
+                onChange={(e) =>
+                  setLoginData({ ...loginData, email: e.target.value })
+                }
               />
             </div>
             <div>
@@ -33,10 +52,11 @@ function LoginForm() {
               <input
                 type="password"
                 name="password"
-                id="password"
                 placeholder="••••••••"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                required=""
+                onChange={(e) =>
+                  setLoginData({ ...loginData, password: e.target.value })
+                }
               />
             </div>
             <div className="flex items-start">
@@ -47,7 +67,6 @@ function LoginForm() {
                     type="checkbox"
                     defaultValue=""
                     className="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                    required=""
                   />
                 </div>
                 <label
@@ -63,7 +82,7 @@ function LoginForm() {
               </a>
             </div>
             <button
-              type="submit"
+              onClick={(e) => submitLogin(e)}
               className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               Login to your account
             </button>

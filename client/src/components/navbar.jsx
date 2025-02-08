@@ -1,5 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
+  const Navigate = useNavigate();
+
+  let loginToken = window.sessionStorage.getItem("token") ? true : false;
+
+  const logoutFunction = () => {
+    window.sessionStorage.removeItem("token");
+    Navigate("/login", { replace: true });
+  };
+
   return (
     <>
       <nav className="bg-white dark:bg-gray-800 border-gray-500 border-b-1">
@@ -74,8 +83,9 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/login"
+                  onClick={logoutFunction}
                   className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                  Login
+                  {loginToken ? "Logout" : "login"}
                 </Link>
               </li>
             </ul>

@@ -3,7 +3,7 @@ function Hero() {
   return (
     <>
       <section className="md:py-26 overflow-hidden md:pt-0 sm:pt-16 2xl:pt-16">
-        <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl pb-8 bg-gray-800 backdrop-blur-lg rounded-4xl">
+        <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl pb-8 bg-gradient-to-br from-blue-900 via-violet-900 to-purple-900 backdrop-blur-lg rounded-4xl">
           <div className="grid items-center grid-cols-1 md:grid-cols-2">
             <div>
               <h2 className="text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl lg:text-5xl">

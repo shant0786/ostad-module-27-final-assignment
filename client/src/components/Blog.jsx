@@ -16,6 +16,12 @@ function Blog() {
 
   return (
     <>
+      <h2 className="text-center text-4xl font-extrabold pt-10 text-gray-900 dark:text-white">
+        <span className="bg-gray-800 py-3  px-5 rounded-2xl">
+          Our latest Blogs
+        </span>
+      </h2>
+
       <div className="mx-auto my-10 md:max-w-7xl min-h-screen bg-gray-800 rounded-3xl p-3 gap-3 grid grid-cols-12">
         {blogData["data"].map((blog, i) => {
           return (
@@ -36,6 +42,9 @@ function Blog() {
                       {blog["title"]}
                     </h6>
                   </a>
+                  <span className="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">
+                    {blog["author"]}
+                  </span>
                   <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                     {blog["content"]}
                   </p>
