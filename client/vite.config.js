@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api/": {
-        target: "http://localhost:5500", // Your backend server URL
+        target: "https://ostad-module-27-final-assignment.onrender.com", // Your backend server URL
       },
     },
   },

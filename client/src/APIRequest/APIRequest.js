@@ -1,7 +1,7 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const BASE_URL = "http://localhost:5500/api/v1";
+const BASE_URL = "https://ostad-module-27-final-assignment.onrender.com/api/v1";
 
 export async function allBlogs() {
   const result = await axios.get(BASE_URL + "/readBlog");

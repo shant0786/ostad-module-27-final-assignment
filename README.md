@@ -3,8 +3,10 @@
 ## **1. Project Overview**
 
 You are required to develop a **portfolio website** with both frontend and backend functionalities. The website must be **mobile-responsive** and include a **dashboard** for content management.<br/>
-[[Backend-live link]](https://ostad-module-27-final-assignment.vercel.app/)<br/>
-[[Frontend-live link]](https://portfolio-assignment-lov)
+
+```https://ostad-module-27-final-assignment.onrender.com/api/v1/"routes" Backend Links
+
+```
 
 `email: "johndoe@example.com",
    password: "pass123",`
