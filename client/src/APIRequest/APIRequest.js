@@ -1,8 +1,8 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const BASE_URL = "https://ostad-module-27-final-assignment.onrender.com/api/v1";
-
+// const BASE_URL = "https://ostad-module-27-final-assignment.onrender.com/api/v1";
+const BASE_URL = "http://localhost:5500/api/v1";
 export async function allBlogs() {
   const result = await axios.get(BASE_URL + "/readBlog");
 
@@ -125,7 +125,7 @@ export async function RegisterUser(reqBody) {
 
   if (result.data["status"] === "success") {
     Swal.fire({
-      title: "Register successful",
+      title: "Registered successfully",
       text: result.data["message"],
       icon: "success",
       color: "#f7fafc",
@@ -150,7 +150,7 @@ export async function contactSend(reqBody) {
   console.log(result.data["status"]);
   if (result.data["status"] === "success") {
     Swal.fire({
-      title: "Message send successful",
+      title: "Message send successfully",
       text: result.data["message"],
       icon: "success",
       color: "#f7fafc",
@@ -177,7 +177,7 @@ export async function deleteBlogDas(id) {
   console.log(result.data["status"]);
   if (result.data["status"] === "success") {
     Swal.fire({
-      title: "Blog Deleted successful",
+      title: "Blog Deleted successfully",
       text: result.data["message"],
       icon: "success",
       color: "#f7fafc",
@@ -201,10 +201,37 @@ export async function deleteBlogDas(id) {
 }
 export async function deleteServiceDas(id) {
   const result = await axios.get(BASE_URL + `/deleteServices/${id}`);
+
+  if (result.data["status"] === "success") {
+    Swal.fire({
+      title: "Service Deleted successfully",
+      text: result.data["message"],
+      icon: "success",
+      color: "#f7fafc",
+      background: "#2d3748",
+    });
+    return { status: "success" };
+  }
+
+  if (result.data["status"] === "error") {
+    Swal.fire({
+      title: "Deleting failed try again",
+      text: result.data["message"],
+      icon: "error",
+      color: "#f7fafc",
+      background: "#2d3748",
+    });
+    return {
+      status: "fail",
+    };
+  }
+}
+export async function deleteMemberDas(id) {
+  const result = await axios.get(BASE_URL + `/deleteTeamMember/${id}`);
   console.log(result.data["status"]);
   if (result.data["status"] === "success") {
     Swal.fire({
-      title: "Blog Deleted successful",
+      title: "Member Deleted successful",
       text: result.data["message"],
       icon: "success",
       color: "#f7fafc",

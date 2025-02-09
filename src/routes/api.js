@@ -67,10 +67,6 @@ router.post(
   TeamServiceController.updateServices
 );
 router.post("/contact", TeamServiceController.contactSend);
-router.get(
-  "/deleteServices/:id",
-
-  TeamServiceController.deleteServices
-);
+router.get("/deleteServices/:id", TeamServiceController.deleteServices);
 
 module.exports = router;

@@ -160,7 +160,7 @@ const updateServicesService = async (req, res) => {
     const data = await ServiceModel.updateOne({ _id: id }, { $set: req.body });
     // Token Direct method
 
-    if (!data.modifiedCount > 0) {
+    if (data.modifiedCount === 0) {
       return {
         status: "error",
         message: "Data update failed due to some error",
@@ -186,10 +186,11 @@ const deleteServicesService = async (req, res) => {
     const data = await ServiceModel.deleteOne({ _id: id });
     // Token Direct method
 
-    if (!data.acknowledged) {
+    if (data["deletedCount"] === 0) {
       return {
         status: "error",
         message: "Data delation failed due to some error",
+        data: data,
       };
     }
 

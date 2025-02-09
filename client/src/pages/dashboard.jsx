@@ -6,6 +6,7 @@ import FormMember from "../components/formMember";
 import FormService from "../components/formService";
 import DelBlogTB from "../components/delTable";
 import DelSerTB from "../components/serviceDelTB";
+import DelMemTB from "../components/memberDel";
 
 function Dashboard() {
   const [blogData, setBlogData] = useState({
@@ -218,9 +219,8 @@ function Dashboard() {
                 ServiceSubmit={ServiceSubmit}
                 formName={"Add Services"}
               />
+              <DelMemTB />
               <DelSerTB />
-            </div>
-            <div className="col-span-6 rounded-3xl bg-gray-800 p-3 md:col-span-12 col-start-7 ">
               <DelBlogTB />
             </div>
           </div>

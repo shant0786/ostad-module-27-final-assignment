@@ -5,8 +5,8 @@ import { loginUser } from "../APIRequest/APIRequest";
 
 function LoginForm() {
   const [loginData, setLoginData] = useState({
-    email: "",
-    password: "",
+    email: "johndoe@example.com",
+    password: "pas123",
   });
   const navigate = useNavigate();
   const submitLogin = async (e) => {
