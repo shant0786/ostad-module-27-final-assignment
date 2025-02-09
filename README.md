@@ -5,7 +5,7 @@
 You are required to develop a **portfolio website** with both frontend and backend functionalities. The website must be **mobile-responsive** and include a **dashboard** for content management.<br/>
 
 [[Portfolio-server]](https://ostad-module-27-final-assignment.onrender.com/api/v1/readBlog)
-[[Portfolio-live]](https://portfolio-assignment-module-27.netlify.app)
+[[Portfolio-live]]([https://portfolio-assignment-module-27.netlify.app](https://portfolio-assignment-module-27.vercel.app/))
 
 `email: "johndoe@example.com",
    password: "pass123",`
