@@ -1,10 +1,10 @@
-import Blog from "../components/blog";
+import BlogCom from "../components/blogSection";
 import Layout from "../layout/layout";
 
 function BlogPage() {
   return (
     <Layout>
-      <Blog />
+      <BlogCom />
     </Layout>
   );
 }

@@ -1,12 +1,12 @@
 import Hero from "../components/hero";
-import Blog from "../components/blog";
+import BlogCom from "../components/blogSection";
 import Layout from "../layout/layout";
 
 function HomePage() {
   return (
     <Layout>
       <Hero />
-      <Blog />
+      <BlogCom />
     </Layout>
   );
 }

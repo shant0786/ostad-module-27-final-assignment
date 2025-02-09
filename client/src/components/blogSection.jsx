@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { allBlogs } from "../APIRequest/APIRequest";
 import Loader from "./loader";
 
-function Blog() {
+function BlogCom() {
   const [blogData, setBlogData] = useState(null);
   useEffect(() => {
     (async () => {
@@ -77,4 +77,4 @@ function Blog() {
   );
 }
 
-export default Blog;
+export default BlogCom;
