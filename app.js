@@ -59,5 +59,7 @@ app.use(
 
 app.set("etag", WEB_CACHE);
 app.use("/api/v1", router);
-
+app.get("*", function (req, res) {
+  res.end("Hello From Server");
+});
 module.exports = app;

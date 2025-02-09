@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  allBlogs,
-  allServices,
-  deleteServiceDas,
-} from "../APIRequest/APIRequest";
+import { allServices, deleteServiceDas } from "../APIRequest/APIRequest";
 import Loader from "./loader";
 
 function DelSerTB() {
